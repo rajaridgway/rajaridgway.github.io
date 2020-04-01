@@ -157,7 +157,7 @@ sec_ccc = all_ccc[["MS_CCC", "HS_CCC"]]
 sec_ccc
 ```
 
-I went through a similar process for the SEPs given that the data was already gathered and formatted. The full code for that process can be found on my [GitHub](https://github.com/rajaridgway/ngssAnalysis).
+I went through a similar process for the SEPs given that the data was already gathered and formatted. The full code in a Jupyter Notebook for that process can be found on my [GitHub](https://github.com/rajaridgway/ngssAnalysis).
 
 The last step was to manipulate the MS and HS dataframes to see if there was a relationship between SEPs and CCCs. This was accomplished by grouping the CCCs and the SEPs using the `.count` method:
 
@@ -190,13 +190,14 @@ It should be noted that the SEPs are also not represented equally:
 The SEP "Developing and Using Models" accounts for 27% of middle school PEs and 21% of high school PEs. The SEPs "Constructing Explanations and Designing Solutions" (20% MS; 24% HS) and "Engaging in Argument from Evidence" (14% MS; 11% HS)are also well represented in comparison to the remaining five SEPs. 
 
 
-### RQ #2: There does appear to be a relationship between some of the cross-cutting concepts and science and engineering practices
+### RQ #2: There are limited relationships between the cross-cutting concepts and science and engineering practices
+The grouping of the SEPs and CCCs in each of the secondary grade bands demonstrated that relationships do appear to exist, but only for a select set of pairings and at a limited level.
 
-
-
+At the middle school level, the CCC "Patterns" and the SEP "Analyzing and Interpreting Data" are most frequently paired together in PEs. The table below shows the other CCCs and SEPs that appear together in at least three PEs:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_MS.png" alt="SEP to CCC MS Relationship">
 
+At the high school level, the CCC "Energy and Matter" and the SEP "Developing and Using Models" are paired together in seven PEs. The table below shows the other CCCs and SEPs that appear together in at least three PEs:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_HS.png" alt="SEP to CCC HS Relationship">
 
