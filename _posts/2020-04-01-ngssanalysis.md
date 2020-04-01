@@ -7,8 +7,6 @@ header:
 excerpt:  "Data Science, NGSS, Visualization"
 ---
 
-# Analysis and Visualization of the Next Generation Science Standards
-
 ## Summary
 
 
@@ -29,7 +27,7 @@ The NGSS organizes the content, SEPs, and CCCs into statements called [performan
 ### Gathering Data via Web Scraping
 To create a data set of all the PEs, CCCs, and SEPs, I started with some light investigation of the official NGSS website. I found that you could [search](https://www.nextgenscience.org/search-standards) for the PEs, or download a full [PDF](https://www.nextgenscience.org/sites/default/files/AllDCI.pdf) of the standards. You can also access the individual pages for each PE, if you know the number and the full name. I don't know all 208 PEs, so I looked for another route.
 
-Given my familiarty with science education, I quickly realized that the [National Science Teaching Association](https://www.nsta.org/) might have a better solution. And they do! They have created id numbers for each PE page, which means that I could easily set up a web scraper using BeautifulSoup and a looping URL:
+Given my familiarty with science education, I quickly realized that the [National Science Teaching Association](https://www.nsta.org/) might have a better solution. And they do! They have created id numbers for each PE page, which means that I could easily set up a web scraper using BeautifulSoup and request after using a loop to gather all the appropriate URLs. The resulting data was then saved to a pandas DataFrame:
 
 ```python
 from bs4 import BeautifulSoup
@@ -38,16 +36,137 @@ import pandas as pd
 
 #Create empty list to gather site links
 urls = []
+
 #Append all links to urls list
 for i in [x for x in range(23,234) if x != 24 and x != 25 and x!=201]:
    urls.append('https://ngss.nsta.org/DisplayStandard.aspx?view=pe&id=' + str(i))
+
+   #Create empty lists
+pe_num_list = []
+sep_list = []
+ccc_list = []
+
+#Loop through all pages
+for url in urls:
+    source = requests.get(url).text
+    soup = BeautifulSoup(source, 'lxml')
+    
+    try:
+        #Get the performance expectation
+        pe_num = soup.select('.std > a')
+        #Convert the soup element to a string and only get text
+        pe_num = str(pe_num[0].getText())
+        #Append PE_num to appropriate list
+        pe_num_list.append(pe_num)
+    
+        #Get the SEP
+        sep = soup.select('#MainContent_rptPractices_lblPractice_0')
+        #Convert the soup element to a string and only get text
+        sep = str(sep[0].getText())
+        #Append SEP to appropriate list
+        sep_list.append(sep)
+
+        #Get the crosscutting concept using the CSS selector
+        ccc = soup.select('#MainContent_rptConcepts_lblConcept_0')
+        #Convert the soup element to a string and only get text
+        ccc = str(ccc[0].getText())
+        #Append ccc to appropriate list
+        ccc_list.append(ccc)
+
+    except IndexError:
+        ccc_list.append("None")
+        continue
+
+#Create dataframe with NGSS dictionary
+ngss_df = pd.DataFrame(
+    {"PE_Number": pe_num_list,
+    "SEP": sep_list,
+    "CCC": ccc_list
+    })
 ```
 
 ### DataFrame Manipulation with pandas
+With the data collected, I created a Jupyter notebook and used pandas to reformat and group the data to be more readable. In particular, I needed to separate the grade level/band from the PE and group all the elementary grades together into one "K-5" band:
+
+```python
+#Import pandas module
+import pandas as pd
+
+#Import matplotlib
+import matplotlib.pyplot as plt
+
+#Ask user which file they want to access
+filename = 'ngss.csv'
+
+#Create variable using pandas to read the file
+df = pd.read_csv(filename)
+
+# Create a new data frame with split value columns 
+new = df["PE_Number"].str.split("-", n=1, expand=True)
+
+# Making a separate grade column from new data frame 
+df["Grade"]= new[0] 
+  
+# Making a separate PE column from new data frame 
+df["PE"]= new[1] 
+  
+# Drop the old PE_Number columns 
+df.drop(columns =["PE_Number"], inplace = True) 
+
+# Add a column for grade bands
+grade_bands = []
+for grade in df.Grade:
+    if grade == "K" or grade == "1" or grade == "2" or grade == "3" or grade == "4" or grade == "5":
+        grade_bands.append("K-5")
+    else:
+        grade_bands.append(grade)
+
+df["Grade_Bands"] = grade_bands
+
+#Drop the Grade column as the grade bands is only needed
+df.drop(columns =["Grade"], inplace = True) 
+```
+
+To compare the three grade bands - elementary, middle, and high school - I needed to select specific rows from the data frame. I could also then filter out the elementary grade band as I am currently more focused on middle and high school.
+
+```python
+#Set index to Grade_bands to utilize .loc
+df = df.set_index("Grade_Bands")
+
+# Determine and plot the frequency of each cross-cutting concept
+ccc_freq = df['CCC'].value_counts(normalize=True) *100
+
+#Determine CCC breakdown in HS
+hs = df.loc["HS"]
+hs_freq = hs['CCC'].value_counts(normalize=True) *100
+
+#Determine CCC breakdown in MS
+ms = df.loc["MS"]
+ms_freq = ms['CCC'].value_counts(normalize=True) *100
+
+#Determine CCC breakdown in MS
+k5 = df.loc["K-5"]
+k5_freq = k5['CCC'].value_counts(normalize=True) *100
+
+#Combine series into one dataframe
+all_ccc = pd.concat([k5_freq, ms_freq, hs_freq, ccc_freq], axis=1)
+all_ccc.columns = ["K-5_CCC", "MS_CCC", "HS_CCC", "All_CCC"]
+
+#Only view secondary CCC
+sec_ccc = all_ccc[["MS_CCC", "HS_CCC"]]
+sec_ccc
+```
+
+I went through a similar process for the SEPs given that the data was already gathered and formatted.
+
+The last step was to ...
 
 ## Results
-
 ### RQ #1: The cross-cutting concepts are **not** represented equally
+The data gathering and analysis demonstrated that certain CCCs are represented far more often in the NGSS performance expectations:
+<img src="{{ site.url }}{{ site.baseurl }}/images/CCCanalysis.png" alt="CCC Analysis">
+
+
 
 ### RQ #2: There is not a substantional relationship between the cross-cutting concepts and the science and engineering practices
 
@@ -58,8 +177,6 @@ To put text in *italics*
 
 To put text in **bold**
 
-A link goes like [link]https://www.nba.com
-
 Numbered list:
 1. First
 2. Second
@@ -69,11 +186,4 @@ Numbered list:
 Bulleted List
 *
 
-Python code block:
-```python
-    import numpy as np
-
-    def test_function(x,y):
-        z = np.sum(x,y)
-```
 
