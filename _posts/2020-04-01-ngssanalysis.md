@@ -157,9 +157,23 @@ sec_ccc = all_ccc[["MS_CCC", "HS_CCC"]]
 sec_ccc
 ```
 
-I went through a similar process for the SEPs given that the data was already gathered and formatted.
+I went through a similar process for the SEPs given that the data was already gathered and formatted. The full code for that process can be found on my [GitHub](https://github.com/rajaridgway/ngssAnalysis).
 
-The last step was to ...
+The last step was to manipulate the MS and HS dataframes to see if there was a relationship between SEPs and CCCs. This was accomplished by grouping the CCCs and the SEPs using the `.count` method:
+
+```Python
+#Count the number of times a CCC is connected a SEP - MS
+ms_group = ms.groupby(["CCC","SEP"]).count()
+
+#Sort the values in descending order - MS
+ms_group_srt = ms_group.sort_values(["PE","SEP"], ascending = False)
+
+#Count the number of times a CCC is connected a SEP - HS
+hs_group = hs.groupby(["CCC","SEP"]).count()
+
+#Sort the values in descending order - HS
+hs_group_srt = hs_group.sort_values(["PE","SEP"], ascending = False)
+```
 
 ## Results
 ### RQ #1: The cross-cutting concepts are **not** represented equally
@@ -176,23 +190,17 @@ It should be noted that the SEPs are also not represented equally:
 The SEP "Developing and Using Models" accounts for 27% of middle school PEs and 21% of high school PEs. The SEPs "Constructing Explanations and Designing Solutions" (20% MS; 24% HS) and "Engaging in Argument from Evidence" (14% MS; 11% HS)are also well represented in comparison to the remaining five SEPs. 
 
 
-### RQ #2: There is not a substantional relationship between the cross-cutting concepts and the science and engineering practices
+### RQ #2: There does appear to be a relationship between some of the cross-cutting concepts and science and engineering practices
 
+
+
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_MS.png" alt="SEP to CCC MS Relationship">
+
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_HS.png" alt="SEP to CCC HS Relationship">
 
 ## Conclusions 
 
-
-To put text in *italics*
-
-To put text in **bold**
-
-Numbered list:
-1. First
-2. Second
-3. Third
-
-
-Bulleted List
-*
 
 
