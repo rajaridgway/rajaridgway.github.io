@@ -7,4 +7,4 @@ header:
     image: "/images/lab.jpg"
 ---
 
-[NGSS]({% link _posts/2020-04-01-ngssanalysis.md %})
+[NGSS Analysis]({% post_url 2020-04-01-ngssanalysis %})
