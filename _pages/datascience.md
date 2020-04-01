@@ -7,8 +7,4 @@ header:
     image: "/images/lab.jpg"
 ---
 
-{%- for post in site.tags[include.taxonomy] -%}
-  {%- unless post.hidden -%}
-    {% include archive-single.html %}
-  {%- endunless -%}
-{%- endfor -%}
+({% link _posts/2020-04-01-ngssanalysis.md %})
