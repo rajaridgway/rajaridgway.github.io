@@ -7,7 +7,7 @@ header:
 excerpt:  "Data Science, NGSS, Visualization"
 ---
 
-#Analysis and Visualization of the Next Generation Science Standards
+# Analysis and Visualization of the Next Generation Science Standards
 
 ## Summary
 
