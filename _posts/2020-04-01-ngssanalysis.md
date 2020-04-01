@@ -164,11 +164,20 @@ The last step was to ...
 ## Results
 ### RQ #1: The cross-cutting concepts are **not** represented equally
 The data gathering and analysis demonstrated that certain CCCs are represented far more often in the NGSS performance expectations:
+
 <img src="{{ site.url }}{{ site.baseurl }}/images/CCCanalysis.png" alt="CCC Analysis">
 
+In particular, the CCC "Cause and Effect" has the greatest representation in both middle and high school PEs (25% of PEs in middle school and 23% of PEs in high school). The CCCs "Energy and Matter" (14% MS; 20% HS) and "Patterns" (15% MS; 11% HS) are also well represented in comparison to the remaining four CCCs.
+
+It should be noted that the SEPs are also not represented equally:
+
+<img src="{{ site.url }}{{ site.baseurl }}/images/SEPanalysis.png" alt="SEP Analysis">
+
+The SEP "Developing and Using Models" accounts for 27% of middle school PEs and 21% of high school PEs. The SEPs "Constructing Explanations and Designing Solutions" (20% MS; 24% HS) and "Engaging in Argument from Evidence" (14% MS; 11% HS)are also well represented in comparison to the remaining five SEPs. 
 
 
 ### RQ #2: There is not a substantional relationship between the cross-cutting concepts and the science and engineering practices
+
 
 ## Conclusions 
 
