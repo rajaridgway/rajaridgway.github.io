@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "Raja Ridgway"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/Ridgway_Raja.jpg"
   bio              : "Data Science Portfolio"
   location         : "Denver, CO"
   email            :
