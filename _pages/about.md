@@ -2,8 +2,8 @@
 title: "About"
 permalink: /about/
 header:
-    image: "/images/SloansJPG.jpg"
+    image: "/images/mountains.jpg"
 
 ---
 
-Under construction
+I'm an educator that uses data to make decisions and improve my impact. s

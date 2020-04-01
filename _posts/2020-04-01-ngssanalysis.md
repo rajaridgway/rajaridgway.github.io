@@ -3,7 +3,7 @@ title: "Data Science Project: NGSS Analysis"
 date: 2020-04-01
 tags: [data science, education, science]
 header:
-    image: "/images/mountains.jpg"
+    image: "/images/lab.jpg"
 excerpt:  "Data Science, NGSS, Visualization"
 ---
 
