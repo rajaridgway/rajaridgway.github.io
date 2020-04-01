@@ -8,7 +8,7 @@ excerpt:  "Data Science, NGSS, Visualization"
 ---
 
 ## Summary
-
+The study considers how to prioritize the content knowledge development of science teachers through the analysis of two dimensions of the NGSS. The results demonstrate that high priority cross-cutting concepts (CCCs) and science and engineering practices (SEPs) might allow the trainers of science teachers to focus their efforts on a select set of content. Additionally, several relationships between specific SEPs and CCCs are found to increase the specificity of the coursework. 
 
 ## Introduction
 So here's the challenge: we need to support the development of teachers' science [content knowledge](https://www.wcu.edu/WebFiles/PDFs/Shulman.pdf) as they gain their Master's of Arts in Teaching. But not every teacher begins their degree with the same baseline of knowledge. This is in addition to the fact that they are not all teaching classes that leverage their formal science educations. Oh, and they are teaching content from a multitude of disciplines and across all grade levels. And - to top it off - they are also trying to learn about all the other aspects of teaching at the same time!
@@ -202,6 +202,19 @@ At the high school level, the CCC "Energy and Matter" and the SEP "Developing an
 <img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_HS.png" alt="SEP to CCC HS Relationship">
 
 ## Conclusions 
+Determining the right focus for content knowledge development for science teachers can be challenging, especially when working with teachers who span domains and grade levels. However, this study has shown that there are ways to prioritize content in the form of CCCs and SEPs.
 
+In particular, the results demonstrate that three of the seven CCCs account for the majority  of the PEs in both MS and HS. If teachers could develop their knowledge of "Cause and Effect," "Patterns," and "Energy and Matter," they would be well prepared to engage with approximately 53% of MS PEs and 54% of HS PEs. Additionally, if the focus for content knowledge could be focused on three of the eight SEPs ("Developing and Using Models," "Constructing Explanations and Designing Solutions," and "Engaging in Argument from Evidence"), teachers would be ready to engage with approximately 61% of MS PEs and 56% of HS PEs.
+
+Given the frequency of a select group of CCCs and SEPs in the NGSS PEs, it is not surprising that these SEPs and CCCs tend to be paired together. In particular, it would be prudent to focus on teaching PEs that feature "Energy and Matter" with "Developing and Using Models" or "Cause and Effect" with "Constructing Explanations and Designing Solutions."
+
+Teachers have a limited amount of time and cognitive space to give to content knowledge development. Prioritizing content based on patterns in how the NGSS PEs are designed can ensure that teachers are leveraging their time in the most meaningful way possible. 
+
+### Potential Next Steps
+While this study considered the relationship between SEPs and CCCs at a high level, further analysis could be done for indiciators within the grade-level progressions (see, for example, ["Asking and Defining and Problems"](https://ngss.nsta.org/Practices.aspx?id=1)). 
+
+Additionally, the third dimension of the NGSS - [the displinary core ideas](https://ngss.nsta.org/DisciplinaryCoreIdeasTop.aspx)(DCIs) - was not considered in this study. Further analysis considering relationships between the SEPs, CCCs and the DCIs could be completed to consider which core ideas should be the focus of science teacher training. 
+
+Finally, this data science project utilized a variety of tools and scripts. Refactoring could be done to increase the efficiency and transferability of the code. 
 
 
