@@ -179,13 +179,13 @@ hs_group_srt = hs_group.sort_values(["PE","SEP"], ascending = False)
 ### RQ #1: The cross-cutting concepts are **not** represented equally
 The data gathering and analysis demonstrated that certain CCCs are represented far more often in the NGSS performance expectations:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/CCCanalysis.png" alt="CCC Analysis">
+<img src="{{ site.url }}{{ site.baseurl }}/images/ngss_analysis/CCCanalysis.png" alt="CCC Analysis">
 
 In particular, the CCC "Cause and Effect" has the greatest representation in both middle and high school PEs (25% of PEs in middle school and 23% of PEs in high school). The CCCs "Energy and Matter" (14% MS; 20% HS) and "Patterns" (15% MS; 11% HS) are also well represented in comparison to the remaining four CCCs.
 
 The SEPs are also not represented equally:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/SEPanalysis.png" alt="SEP Analysis">
+<img src="{{ site.url }}{{ site.baseurl }}/images/ngss_analysis/SEPanalysis.png" alt="SEP Analysis">
 
 The SEP "Developing and Using Models" accounts for 27% of middle school PEs and 21% of high school PEs. The SEPs "Constructing Explanations and Designing Solutions" (20% MS; 24% HS) and "Engaging in Argument from Evidence" (14% MS; 11% HS) are also well represented in comparison to the remaining five SEPs. 
 
@@ -195,12 +195,12 @@ The grouping of the SEPs and CCCs in each of the secondary grade bands demonstra
 
 At the middle school level, the CCC "Patterns" and the SEP "Analyzing and Interpreting Data" are most frequently paired together in PEs. The table below shows the other CCCs and SEPs that appear together in at least three PEs:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCC_MS.png" alt="SEP to CCC MS Relationship">
+<img src="{{ site.url }}{{ site.baseurl }}/images/ngss_analysis/SEPCCC_MS.png" alt="SEP to CCC MS Relationship">
 
 
 At the high school level, the CCC "Energy and Matter" and the SEP "Developing and Using Models" are paired together in seven PEs. The table below shows the other CCCs and SEPs that appear together in at least three PEs:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCC_HS.png" alt="SEP to CCC HS Relationship">
+<img src="{{ site.url }}{{ site.baseurl }}/images/ngss_analysis/SEPCCC_HS.png" alt="SEP to CCC HS Relationship">
 
 ## Conclusions 
 Determining the right focus for content knowledge development for science teachers can be challenging, especially when working with teachers who span domains and grade levels. However, this study has shown that there are ways to prioritize content in the form of CCCs and SEPs.
