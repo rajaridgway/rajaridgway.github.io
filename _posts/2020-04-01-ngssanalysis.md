@@ -8,21 +8,21 @@ excerpt:  "Data Science, NGSS, Visualization"
 ---
 
 ## Summary
-The study considers how to prioritize the content knowledge development of science teachers through the analysis of two dimensions of the NGSS. The results demonstrate that high priority cross-cutting concepts (CCCs) and science and engineering practices (SEPs) might allow the trainers of science teachers to focus their efforts on a select set of content. Additionally, several relationships between specific SEPs and CCCs are found to increase the specificity of the coursework. 
+The study considers how to prioritize the content knowledge development of secondary (6-12) science teachers through the analysis of two dimensions of the NGSS. The results demonstrate that high priority cross-cutting concepts (CCCs) and science and engineering practices (SEPs) might allow the trainers of science teachers to focus their efforts on a select set of content. Additionally, several relationships between specific SEPs and CCCs are found to increase the specificity of the coursework. 
 
 ## Introduction
 So here's the challenge: we need to support the development of teachers' science [content knowledge](https://www.wcu.edu/WebFiles/PDFs/Shulman.pdf) as they gain their Master's of Arts in Teaching. But not every teacher begins their degree with the same baseline of knowledge. This is in addition to the fact that they are not all teaching classes that leverage their formal science educations. Oh, and they are teaching content from a multitude of disciplines and across all grade levels. And - to top it off - they are also trying to learn about all the other aspects of teaching at the same time!
 
-One solution is to focus our teachers' content knowledge development through the [Next Generation Science Standards](https://www.nextgenscience.org/)(NGSS). The NGSS are a framework for teaching science in a three-dimensional manner: content, practices, and cross-cuttting concepts. The NGSS have been [widely adopted](https://ngss.nsta.org/about.aspx) in the United States, which is great because the NGSS represent a much more progressive approach to science education (i.e., not just memorizing science facts). Using the NGSS also means that we can focus on the [cross-cutting concepts](https://ngss.nsta.org/CrosscuttingConceptsFull.aspx)(CCCs) - seven concepts that universally applicable across all science domains (and, I would argue, across all subjects!).
+One solution is to focus our teachers' content knowledge development through the [Next Generation Science Standards](https://www.nextgenscience.org/) (NGSS). The NGSS are a framework for teaching K-12 science in a three-dimensional manner: content, practices, and cross-cuttting concepts. The NGSS have been [widely adopted](https://ngss.nsta.org/about.aspx) in the United States, which is great because the NGSS represent a much more progressive approach to science education (i.e., not just memorizing science facts). Using the NGSS also means that we can focus on the [cross-cutting concepts](https://ngss.nsta.org/CrosscuttingConceptsFull.aspx) (CCCs) - seven concepts that universally applicable across all science domains (and, I would argue, across all subjects!).
 
-However, we cannot likely cover all the of the CCCs in great depth while providing a coherent and cohesive experience for our teachers. So we need to prioritize. But, which CCCs are the most important? Or are they all equally important? And if we choose specific CCCs to focus on, are they connected to specific [science and engineering practices](https://ngss.nsta.org/PracticesFull.aspx)(SEPs)? Let's boil these wonderings down into a couple research questions:
+However, we cannot realistically cover all the of the CCCs at an appropriate level of depth while providing a coherent and cohesive experience for our teachers. So we need to prioritize. But, which CCCs are the most important? Or are they all equally important? And if we choose specific CCCs to focus on, are they connected to specific [science and engineering practices](https://ngss.nsta.org/PracticesFull.aspx) (SEPs)? Let's boil these wonderings down into a couple research questions:
 
 ### Research Questions
 1. How are the CCCs and SEPs represented in the NGSS? Is there a difference between middle and high school?
 2. Is there a relationship between CCCs and SEPs?
 
 ## Methodology
-The NGSS organizes the content, SEPs, and CCCs into statements called [performance expectations](https://www.nextgenscience.org/glossary/performance-expectation-pe)(PEs) which are freely available on the Internet. However, there are 208 of them, which would mean that taking the time to go to each webpage to figure out which SEPs and CCCs are specific to a PE would take a whole lot of time. And be super repetitive. So it's time for some webscraping!
+The NGSS organizes the content, SEPs, and CCCs into statements called [performance expectations](https://www.nextgenscience.org/glossary/performance-expectation-pe) (PEs) which are freely available on the Internet. However, there are 208 of them, which would mean that taking the time to go to each webpage to figure out which SEPs and CCCs are specific to a PE would take a whole lot of time. And be super repetitive. So it's time for some webscraping!
 
 ### Gathering Data via Web Scraping
 To create a data set of all the PEs, CCCs, and SEPs, I started with some light investigation of the official NGSS website. I found that you could [search](https://www.nextgenscience.org/search-standards) for the PEs, or download a full [PDF](https://www.nextgenscience.org/sites/default/files/AllDCI.pdf) of the standards. You can also access the individual pages for each PE, if you know the number and the full name. I don't know all 208 PEs, so I looked for another route.
@@ -157,11 +157,11 @@ sec_ccc = all_ccc[["MS_CCC", "HS_CCC"]]
 sec_ccc
 ```
 
-I went through a similar process for the SEPs given that the data was already gathered and formatted. The full code in a Jupyter Notebook for that process can be found on my [GitHub](https://github.com/rajaridgway/ngssAnalysis).
+I went through a similar process for the SEPs - the full code and the resulting .csv file can be found on my [GitHub](https://github.com/rajaridgway/ngssAnalysis).
 
 The last step was to manipulate the MS and HS dataframes to see if there was a relationship between SEPs and CCCs. This was accomplished by grouping the CCCs and the SEPs using the `.count` method:
 
-```Python
+```python
 #Count the number of times a CCC is connected a SEP - MS
 ms_group = ms.groupby(["CCC","SEP"]).count()
 
@@ -183,11 +183,11 @@ The data gathering and analysis demonstrated that certain CCCs are represented f
 
 In particular, the CCC "Cause and Effect" has the greatest representation in both middle and high school PEs (25% of PEs in middle school and 23% of PEs in high school). The CCCs "Energy and Matter" (14% MS; 20% HS) and "Patterns" (15% MS; 11% HS) are also well represented in comparison to the remaining four CCCs.
 
-It should be noted that the SEPs are also not represented equally:
+The SEPs are also not represented equally:
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/SEPanalysis.png" alt="SEP Analysis">
 
-The SEP "Developing and Using Models" accounts for 27% of middle school PEs and 21% of high school PEs. The SEPs "Constructing Explanations and Designing Solutions" (20% MS; 24% HS) and "Engaging in Argument from Evidence" (14% MS; 11% HS)are also well represented in comparison to the remaining five SEPs. 
+The SEP "Developing and Using Models" accounts for 27% of middle school PEs and 21% of high school PEs. The SEPs "Constructing Explanations and Designing Solutions" (20% MS; 24% HS) and "Engaging in Argument from Evidence" (14% MS; 11% HS) are also well represented in comparison to the remaining five SEPs. 
 
 
 ### RQ #2: There are limited relationships between the cross-cutting concepts and science and engineering practices
@@ -211,9 +211,9 @@ Given the frequency of a select group of CCCs and SEPs in the NGSS PEs, it is no
 Teachers have a limited amount of time and cognitive space to give to content knowledge development. Prioritizing content based on patterns in how the NGSS PEs are designed can ensure that teachers are leveraging their time in the most meaningful way possible. 
 
 ### Potential Next Steps
-While this study considered the relationship between SEPs and CCCs at a high level, further analysis could be done for indiciators within the grade-level progressions (see, for example, ["Asking and Defining and Problems"](https://ngss.nsta.org/Practices.aspx?id=1)). 
+While this study considered the relationship between SEPs and CCCs at a high level, further analysis could be done for indiciators within the grade-level progressions (see, for example, "[Asking and Defining and Problems](https://ngss.nsta.org/Practices.aspx?id=1)"). 
 
-Additionally, the third dimension of the NGSS - [the displinary core ideas](https://ngss.nsta.org/DisciplinaryCoreIdeasTop.aspx)(DCIs) - was not considered in this study. Further analysis considering relationships between the SEPs, CCCs and the DCIs could be completed to consider which core ideas should be the focus of science teacher training. 
+Additionally, the third dimension of the NGSS - [the displinary core ideas](https://ngss.nsta.org/DisciplinaryCoreIdeasTop.aspx) (DCIs) - was not considered in this study. Further analysis considering relationships between the SEPs, CCCs and the DCIs could be completed to consider which core ideas should be the focus of science teacher training. 
 
 Finally, this data science project utilized a variety of tools and scripts. Refactoring could be done to increase the efficiency and transferability of the code. 
 
