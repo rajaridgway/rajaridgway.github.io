@@ -195,11 +195,12 @@ The grouping of the SEPs and CCCs in each of the secondary grade bands demonstra
 
 At the middle school level, the CCC "Patterns" and the SEP "Analyzing and Interpreting Data" are most frequently paired together in PEs. The table below shows the other CCCs and SEPs that appear together in at least three PEs:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_MS.png" alt="SEP to CCC MS Relationship">
+<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCC_MS.png" alt="SEP to CCC MS Relationship">
+
 
 At the high school level, the CCC "Energy and Matter" and the SEP "Developing and Using Models" are paired together in seven PEs. The table below shows the other CCCs and SEPs that appear together in at least three PEs:
 
-<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCCC_HS.png" alt="SEP to CCC HS Relationship">
+<img src="{{ site.url }}{{ site.baseurl }}/images/SEPCCC_HS.png" alt="SEP to CCC HS Relationship">
 
 ## Conclusions 
 Determining the right focus for content knowledge development for science teachers can be challenging, especially when working with teachers who span domains and grade levels. However, this study has shown that there are ways to prioritize content in the form of CCCs and SEPs.
